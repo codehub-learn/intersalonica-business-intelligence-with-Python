@@ -1,0 +1,30 @@
+[
+    {
+        "Product": "Laptop",
+        "Revenue": 1200,
+        "Cost": 800,
+        "Profit": 400,
+        "Margin %": 33.33
+    },
+    {
+        "Product": "Tablet",
+        "Revenue": 500,
+        "Cost": 300,
+        "Profit": 200,
+        "Margin %": 40.0
+    },
+    {
+        "Product": "Phone",
+        "Revenue": 800,
+        "Cost": 700,
+        "Profit": 100,
+        "Margin %": 12.5
+    },
+    {
+        "Product": "Monitor",
+        "Revenue": 400,
+        "Cost": 250,
+        "Profit": 150,
+        "Margin %": 37.5
+    }
+]

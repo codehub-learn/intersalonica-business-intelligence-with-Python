@@ -1,0 +1,22 @@
+<SalesData>
+    <Sale>
+        <Product>Laptop</Product>
+        <Revenue>1200</Revenue>
+        <Cost>800</Cost>
+    </Sale>
+    <Sale>
+        <Product>Tablet</Product>
+        <Revenue>500</Revenue>
+        <Cost>300</Cost>
+    </Sale>
+    <Sale>
+        <Product>Phone</Product>
+        <Revenue>800</Revenue>
+        <Cost>700</Cost>
+    </Sale>
+    <Sale>
+        <Product>Monitor</Product>
+        <Revenue>400</Revenue>
+        <Cost>250</Cost>
+    </Sale>
+</SalesData>
