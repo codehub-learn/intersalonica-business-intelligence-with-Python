@@ -11,6 +11,7 @@ transactions = [
     {"txn_id": 1, "customer": "Alice", "amount": 120, "region": "North"},
     {"txn_id": 2, "customer": "Bob", "amount": 200, "region": "South"},
     {"txn_id": 3, "customer": "Alice", "amount": 150, "region": "North"},
+    {"txn_id": 4, "customer": "Alice", "amount": 0, "region": "North"},
 ]
 
 # 1. Staging area (cleaning)
@@ -24,5 +25,11 @@ mart_sales_by_region = {}
 for t in staging:
     mart_sales_by_region[t["region"]] = mart_sales_by_region.get(t["region"], 0) + t["amount"]
 
+
+
+# Output results
+print("Staging area:", staging)
+print("-"*40)
 print("Fact table:", fact_sales)
+print("-"*40)
 print("Sales by region mart:", mart_sales_by_region)
