@@ -19,7 +19,7 @@ class SalesAnalytics:
         return round(self.total_revenue() / len(self.sales_data), 2)
 
     def best_product(self)-> str:
-        return max(self.sales_data, key=lambda x: x["Revenue"])["Product"]
+        return max(self.sales_data, key=lambda x: x["Revenue"])  ["Product"]
 
     def profit_margins(self)-> dict:
         """Return dictionary of products and their profit margins %."""
@@ -48,8 +48,10 @@ class SalesAnalytics:
 if __name__ == "__main__":
     data = [
         {"Product": "Laptop", "Revenue": 1200, "Cost": 800},
-        {"Product": "Tablet", "Revenue": 500, "Cost": 300},
+        {"Product": "Tablet", "Revenue": 350, "Cost": 300},
         {"Product": "Smartphone", "Revenue": 800, "Cost": 600},
+        {"Product": "Tablet", "Revenue": 360, "Cost": 300},
+        {"Product": "Smartphone", "Revenue": 800, "Cost": 600,"cate":"xx"},
     ]
 
     analytics = SalesAnalytics(data)

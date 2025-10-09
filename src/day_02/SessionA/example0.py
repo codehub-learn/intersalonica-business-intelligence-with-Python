@@ -12,7 +12,8 @@ avg = total / len(sales)
 highest = max(sales)
 
 print(f"Total: {total}, Average: {avg}, Highest Sale: {highest}")
-
+print("-"*30)
+print("")
 #######################################################
 
 products = [

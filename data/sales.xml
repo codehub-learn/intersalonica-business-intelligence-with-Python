@@ -1,9 +1,9 @@
 <SalesData>
-    <Sale>
+    <Sal>
         <Product>Laptop</Product>
         <Revenue>1200</Revenue>
         <Cost>800</Cost>
-    </Sale>
+    </Sal>
     <Sale>
         <Product>Tablet</Product>
         <Revenue>500</Revenue>

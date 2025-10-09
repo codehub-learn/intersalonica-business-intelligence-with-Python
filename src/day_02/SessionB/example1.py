@@ -3,8 +3,13 @@ import csv
 #load sales data from CSV and print each row
 with open("data/sales.csv", "r") as file:
     reader = csv.DictReader(file)
+    sales_data = []
     for row in reader:
+        sales_data.append(row)
         print(f"Product: {row['Product']}, Revenue: {row['Revenue']}, Cost: {row['Cost']}")
+
+print(sales_data)
+print("-"*30)
 
 #save sales data to CSV
 with open("data/output_sales.csv", "w", newline='') as file:

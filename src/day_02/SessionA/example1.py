@@ -9,7 +9,7 @@ def calculate_profit_margin(revenue, cost):
     return round((profit / revenue) * 100, 2)
 
 
-def compound_interest(principal, rate, times_compounded, years):
+def compound_interest(principal, rate, times_compounded, years=5):
     """
     Calculate compound interest.
 
@@ -36,6 +36,8 @@ if __name__ == "__main__":
     print(f"Profit Margin: {margin}%")
 
     # Example usage
-    amount, interest = compound_interest(10000, 0.05, 4, 5)  # $10,000 at 5% compounded quarterly for 5 years
+    amount, interest = compound_interest(
+         times_compounded=5 , rate=0.05, principal=3000) 
+     # $10,000 at 5% compounded quarterly for 5 years
     print("Final Amount:", amount)
     print("Compound Interest:", interest)

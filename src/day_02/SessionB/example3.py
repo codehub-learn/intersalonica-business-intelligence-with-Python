@@ -7,7 +7,7 @@ class XMLSalesAnalytics:
         self.xml_file = xml_file
         self.sales_data = self.load_xml()
 
-    def load_xml(self):
+    def load_xml(self)-> list:
         """Parse XML and return list of sales dictionaries."""
         tree = ET.parse(self.xml_file)
         root = tree.getroot()

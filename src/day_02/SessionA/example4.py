@@ -9,6 +9,9 @@ if __name__ == "__main__":
 
     analytics = salesanalytics.SalesAnalytics(data)
 
+    revenue = analytics.total_revenue
+    print(revenue)
+
     print("Total Revenue:", analytics.total_revenue())
     print("Total Profit:", analytics.total_profit())
     print("Average Revenue:", analytics.average_revenue())

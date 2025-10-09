@@ -14,6 +14,8 @@ sales_data_json = """
 
 # Convert JSON string into Python objects
 sales_data = json.loads(sales_data_json)
+print(type(sales_data_json))
+print(type(sales_data))
 
 # Add Profit and Margin for BI analysis
 for item in sales_data:
