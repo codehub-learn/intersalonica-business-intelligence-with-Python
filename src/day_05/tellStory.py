@@ -50,3 +50,16 @@ plt.xlabel("Amount")
 plt.ylabel("Frequency")
 plt.show()
     
+# create a pie plot of sales per region
+# aggregate sales by region
+
+sales_by_region = {}
+for t in transactions:
+    sales_by_region[t["region"]] = sales_by_region.get(t["region"], 0) + t["amount"]    
+regions = list(sales_by_region.keys())
+amounts = list(sales_by_region.values())
+plt.pie(amounts, labels=regions, autopct='%1.1f%%', startangle=140)
+plt.title("Sales Distribution by Region")
+plt.show()
+    
+        
