@@ -21,12 +21,23 @@ All DW Schemas"
 Data Profiling
 Design / Develop the Dimensional Model"
 
+
+Session A
+5 exercises 
+
+Session B
+
+
+
+
 --5--
 Data Marts: Data Marts & Design Considerations
 ETL: ETL and Techniques
 
 --6--
 Moving the Data into the DW: Extract-Transform-Load processes with Python
+
+
 
 --7--
 "Numpy Library

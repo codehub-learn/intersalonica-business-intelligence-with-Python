@@ -1,7 +1,7 @@
 import csv
 
-input_file = "your_file.csv"
-output_file = "cleaned_file.csv"
+input_file = "data\loan_sanction_train.csv"
+output_file = "data\cleaned_file.csv"
 
 # Read the CSV and detect missing values
 with open(input_file, "r", newline="", encoding="utf-8") as infile:

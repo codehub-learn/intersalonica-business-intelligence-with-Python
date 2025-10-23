@@ -1,7 +1,9 @@
 import csv
 
-input_file = "your_file.csv"
-output_file = "imputed_file.csv"
+
+input_file = "data\loan_sanction_train.csv"
+output_file = "data\imputed_file.csv"
+
 fill_value = "0"  # You can change this to "N/A", "Unknown", etc.
 
 with open(input_file, "r", newline="", encoding="utf-8") as infile:
