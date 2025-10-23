@@ -1,0 +1,7 @@
+Total Sales: 470
+Average Sale: 117.5
+Max Sale: 200
+Min Sale: 0
+Sales by Customer:
+  Alice: 270
+  Bob: 200
