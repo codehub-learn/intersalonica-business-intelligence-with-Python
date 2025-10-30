@@ -1,0 +1,104 @@
+"""
+
+
+Financial Portfolio Optimization and Risk Assessment
+
+
+Generates correlated asset returns using a multivariate normal distribution.
+Computes portfolio performance (expected return, volatility).
+Runs a Monte Carlo simulation to build the efficient frontier.
+Finds the optimal portfolio based on the Sharpe ratio.
+Calculates risk metrics (Value-at-Risk and Conditional VaR).
+Simulates future portfolio growth with a geometric Brownian motion model.
+
+
+
+"""
+
+
+import numpy as np
+
+# --- Step 1: Simulate synthetic financial data ---
+np.random.seed(42)
+num_assets = 4
+num_days = 1000
+
+# Simulate daily returns with mean and covariance
+mean_returns = np.array([0.0005, 0.0003, 0.0007, 0.0004])
+cov_matrix = np.array([
+    [0.00015, 0.00005, 0.00003, 0.00004],
+    [0.00005, 0.00010, 0.00002, 0.00003],
+    [0.00003, 0.00002, 0.00020, 0.00006],
+    [0.00004, 0.00003, 0.00006, 0.00018]
+])
+
+returns = np.random.multivariate_normal(mean_returns, cov_matrix, num_days)
+
+# --- Step 2: Portfolio metrics ---
+def portfolio_performance(weights, mean_returns, cov_matrix):
+    portfolio_return = np.dot(weights, mean_returns)
+    portfolio_volatility = np.sqrt(np.dot(weights.T, np.dot(cov_matrix, weights)))
+    return portfolio_return, portfolio_volatility
+
+# --- Step 3: Monte Carlo simulation for efficient frontier ---
+num_portfolios = 10000
+results = np.zeros((3, num_portfolios))
+
+for i in range(num_portfolios):
+    weights = np.random.random(num_assets)
+    weights /= np.sum(weights)
+    ret, vol = portfolio_performance(weights, mean_returns, cov_matrix)
+    sharpe = ret / vol
+    results[0,i] = ret
+    results[1,i] = vol
+    results[2,i] = sharpe
+
+# --- Step 4: Optimal portfolio (maximum Sharpe ratio) ---
+max_sharpe_idx = np.argmax(results[2])
+opt_return, opt_volatility, opt_sharpe = results[:, max_sharpe_idx]
+
+print("Optimal Portfolio:")
+print(f"  Expected Return: {opt_return:.4f}")
+print(f"  Volatility: {opt_volatility:.4f}")
+print(f"  Sharpe Ratio: {opt_sharpe:.4f}")
+
+# --- Step 5: Value-at-Risk (VaR) using historical simulation ---
+portfolio_weights = np.random.random(num_assets)
+portfolio_weights /= np.sum(portfolio_weights)
+portfolio_returns = returns.dot(portfolio_weights)
+VaR_95 = np.percentile(portfolio_returns, 5)
+CVaR_95 = portfolio_returns[portfolio_returns <= VaR_95].mean()
+
+print("\nRisk Metrics (95% confidence):")
+print(f"  VaR: {VaR_95:.5f}")
+print(f"  CVaR: {CVaR_95:.5f}")
+
+# --- Step 6: Simulate future portfolio value using Geometric Brownian Motion ---
+initial_value = 1_000_000
+T = 252  # trading days in a year
+mu, sigma = opt_return * 252, opt_volatility * np.sqrt(252)
+
+dt = 1 / T
+simulations = 10000
+gbm = np.exp((mu - 0.5 * sigma**2) * dt + sigma * np.sqrt(dt) * np.random.randn(simulations, T))
+gbm_paths = initial_value * gbm.cumprod(axis=1)
+final_values = gbm_paths[:, -1]
+
+expected_final_value = np.mean(final_values)
+loss_prob = np.mean(final_values < initial_value)
+
+print("\nMonte Carlo Simulation:")
+print(f"  Expected Final Value: €{expected_final_value:,.2f}")
+print(f"  Probability of Loss: {loss_prob*100:.2f}%")
+
+
+
+import matplotlib.pyplot as plt
+
+plt.scatter(results[1,:], results[0,:], c=results[2,:], cmap='viridis', s=10)
+plt.colorbar(label='Sharpe Ratio')
+plt.xlabel('Volatility')
+plt.ylabel('Expected Return')
+plt.title('Efficient Frontier (Monte Carlo Simulation)')
+plt.scatter(opt_volatility, opt_return, color='red', marker='*', s=200)
+plt.show()
