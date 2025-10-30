@@ -107,7 +107,7 @@ features = [
      monthly[m]["conversion_rate"], monthly[m]["customer_satisfaction"]]
     for m in months
 ]
-clusters = kmeans(features, k=3)
+clusters = kmeans(features, k=5)
 for i, m in enumerate(months):
     monthly[m]["performance_cluster"] = clusters[i]
 

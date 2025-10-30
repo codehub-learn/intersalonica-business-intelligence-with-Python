@@ -13,7 +13,7 @@ The correlations to highlight:
 Revenue ↔ Marketing Spend → strong positive correlation
 Revenue ↔ Operational Cost → strong positive correlation
 Revenue ↔ Customer Satisfaction → mild positive
-Operational Cost ↔ Employee Productivity → slight negative
+Operational Cost ↔ Employee Productivity → slight negative ?
 """
 
 import random
@@ -22,6 +22,7 @@ import matplotlib.pyplot as plt
 
 # Step 1: Generate synthetic business data
 n = 50
+random.seed(42)
 revenue = [random.uniform(1000, 5000) for _ in range(n)]
 marketing_spend = [r * random.uniform(0.15, 0.25) + random.uniform(-200, 200) for r in revenue]
 customer_satisfaction = [80 + (r/1000) * 2 - (m/500) * 0.5 + random.uniform(-3, 3) for r, m in zip(revenue, marketing_spend)]
@@ -52,7 +53,8 @@ corr_matrix = [[correlation(data[keys[i]], data[keys[j]]) for j in range(size)] 
 # Step 3: Visualization - Correlation Matrix Heatmap
 fig, ax = plt.subplots(figsize=(8, 6))
 im = ax.imshow(corr_matrix, cmap="coolwarm", vmin=-1, vmax=1)
-
+# cmaps ->  viridis, plasma, inferno, magma, cividis, coolwarm, 'bwr', 'seismic', 'PiYG', 'RdBu'
+# 'Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds
 # Step 4: Customize visualization
 ax.set_xticks(range(size))
 ax.set_yticks(range(size))

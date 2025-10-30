@@ -85,7 +85,7 @@ if len(months) >= 2:
 else:
     predicted_sales = 0
 
-print(f"Predicted next month sales: ${predicted_sales:,.2f}")
+print(f"prev_sales = {prev_sales} last_sales = {last_sales} Predicted next month sales: ${predicted_sales:,.2f}")
 
 # Prepare data for plotting
 sales = [monthly[m]["sales"] for m in months]
@@ -101,7 +101,7 @@ plt.figure(figsize=(12, 8))
 
 # ---- Chart 1: Sales Trend ----
 plt.subplot(3, 1, 1)
-plt.plot(months, sales, marker='o', color='tab:blue')
+plt.plot(months, sales, marker='*', color='tab:blue')
 plt.title("Monthly Sales Trend")
 plt.xlabel("Month")
 plt.ylabel("Sales")
@@ -122,7 +122,8 @@ plt.grid(True, axis='y')
 
 # ---- Chart 3: Marketing Spend vs Sales ----
 plt.subplot(3, 1, 3)
-plt.scatter(spend, sales, s=[r * 300 for r in roi], c=roi, cmap='viridis', alpha=0.7)
+# plt.scatter(spend, sales, s=[r * 300 for r in roi], c=roi, cmap='viridis', alpha=0.5)
+plt.scatter(spend, sales, s=roi, c=roi, cmap='viridis', alpha=0.5)
 plt.colorbar(label="ROI")
 plt.title("Marketing Spend vs Sales")
 plt.xlabel("Marketing Spend")
@@ -130,4 +131,7 @@ plt.ylabel("Sales")
 plt.grid(True)
 
 plt.tight_layout()
+plt.savefig("output/monthly_kpis_visualization.png")
 plt.show()
+
+

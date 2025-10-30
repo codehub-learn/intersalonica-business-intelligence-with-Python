@@ -78,7 +78,7 @@ for i in range(size):
             # Label correlation value at midpoint of edge
             mid_x = (x1 + x2) / 2
             mid_y = (y1 + y2) / 2
-            ax.text(mid_x, mid_y, f"{corr:+.2f}", fontsize=8, ha="center", va="center", color=color, fontweight="bold")
+            ax.text(mid_x+0.1, mid_y+0.1, f"{corr:+.2f}", fontsize=8, ha="center", va="center", color=color, fontweight="bold")
 
 # Draw nodes
 for i, (x, y) in enumerate(positions):
