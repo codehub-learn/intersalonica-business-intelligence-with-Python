@@ -1,0 +1,13 @@
+Month,Region,Marketing_Spend,Revenue,Customer_Acquisitions,ROI,Channel_Share
+Jan,North,12000,56000,210,3.67,0.6
+Feb,North,9500,42000,180,3.42,0.55
+Mar,North,14300,61000,245,3.27,0.7
+Apr,South,11800,51000,220,3.32,0.48
+May,South,11000,48000,200,3.36,0.5
+Jun,South,13400,60000,240,3.48,0.58
+Jul,West,12500,58000,230,3.64,0.75
+Aug,West,11900,55000,215,3.62,0.68
+Sep,West,14000,62000,250,3.43,0.72
+Oct,North,13000,59000,235,3.54,0.62
+Nov,South,12800,57000,225,3.45,0.53
+Dec,West,13800,63000,255,3.57,0.74
